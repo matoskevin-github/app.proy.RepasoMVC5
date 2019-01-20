@@ -1,0 +1,33 @@
+﻿@model List<Demo_ASP.netMVC09.Models.Pelicula>
+@{
+    ViewBag.Title = "Formulario Contact";
+
+}
+<h2>@ViewBag.Title.</h2>
+
+
+<div>
+    Mostrando @Model.Count películas
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Género</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pelicula in Model)
+        {
+            var claseFila = (!pelicula.EstaEnCartelera) ? "danger" : string.Empty;
+            <tr class="@claseFila">
+                <td>
+                    @pelicula.Titulo
+                </td>
+                <td>
+                    @pelicula.Genero
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
